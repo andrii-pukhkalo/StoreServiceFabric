@@ -1,5 +1,8 @@
-﻿namespace Catalog.Domain.Core.BookAggregate
+﻿using System;
+
+namespace Catalog.Domain.Core.BookAggregate
 {
+    [Serializable]
     public class Price
     {
         public double Amount { get; private set; }

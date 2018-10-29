@@ -1,0 +1,54 @@
+{
+  "version": 2,
+  "exports": {
+    "Catalog.Domain.Core/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.1",
+      "compile": {
+        "bin/Debug/Catalog.Domain.Core.dll": {}
+      },
+      "runtime": {
+        "bin/Debug/Catalog.Domain.Core.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/Catalog.Domain.Core.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    },
+    "Catalog.Service.Interfaces/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.1",
+      "compile": {
+        "bin/Debug/Catalog.Service.Interfaces.dll": {}
+      },
+      "runtime": {
+        "../packages/Microsoft.ServiceFabric.6.3.187/lib/net461/Microsoft.ServiceFabric.Internal.Strings.dll": {},
+        "../packages/Microsoft.ServiceFabric.6.3.187/lib/net461/Microsoft.ServiceFabric.Internal.dll": {},
+        "../packages/Microsoft.ServiceFabric.6.3.187/lib/net461/Microsoft.ServiceFabric.Preview.dll": {},
+        "../packages/Microsoft.ServiceFabric.6.3.187/lib/net461/System.Fabric.Management.ServiceModel.dll": {},
+        "../packages/Microsoft.ServiceFabric.6.3.187/lib/net461/System.Fabric.Strings.dll": {},
+        "../packages/Microsoft.ServiceFabric.6.3.187/lib/net461/System.Fabric.dll": {},
+        "../packages/Microsoft.ServiceFabric.Data.3.2.187/lib/net461/Microsoft.ServiceFabric.Data.dll": {},
+        "../packages/Microsoft.ServiceFabric.Data.Extensions.1.4.187/lib/net461/Microsoft.ServiceFabric.Data.Extensions.dll": {},
+        "../packages/Microsoft.ServiceFabric.Data.Extensions.1.4.187/lib/net461/Microsoft.ServiceFabric.ReliableCollection.Interop.dll": {},
+        "../packages/Microsoft.ServiceFabric.Data.Interfaces.3.2.187/lib/net461/Microsoft.ServiceFabric.Data.Interfaces.dll": {},
+        "../packages/Microsoft.ServiceFabric.Diagnostics.Internal.3.2.187/lib/net461/Microsoft.ServiceFabric.Diagnostics.dll": {},
+        "../packages/Microsoft.ServiceFabric.FabricTransport.Internal.3.2.187/lib/net461/Microsoft.ServiceFabric.FabricTransport.V2.dll": {},
+        "../packages/Microsoft.ServiceFabric.FabricTransport.Internal.3.2.187/lib/net461/Microsoft.ServiceFabric.FabricTransport.dll": {},
+        "../packages/Microsoft.ServiceFabric.Services.3.2.187/lib/net461/Microsoft.ServiceFabric.Services.dll": {},
+        "../packages/Microsoft.ServiceFabric.Services.Remoting.3.2.187/lib/net461/Microsoft.ServiceFabric.Services.Remoting.dll": {},
+        "bin/Debug/Catalog.Service.Interfaces.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/Catalog.Service.Interfaces.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    }
+  }
+}

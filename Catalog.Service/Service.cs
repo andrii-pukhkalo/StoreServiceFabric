@@ -8,12 +8,16 @@ using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 using Catalog.Domain.Interfaces;
 
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
+using Catalog.Service.Interfaces;
+using Catalog.Domain.Core.BookAggregate;
+
 namespace Catalog.Service
 {
     /// <summary>
     /// An instance of this class is created for each service instance by the Service Fabric runtime.
     /// </summary>
-    internal sealed class Service : StatelessService
+    internal sealed class Service : StatelessService, ICatalogService
     {
         private IBookRepository _bookRepository;
 
@@ -24,13 +28,26 @@ namespace Catalog.Service
             _bookRepository = bookRepository;
         }
 
+        public async Task<List<Book>> GetAll()
+        {
+            return await _bookRepository.GetAllAsync();
+        }
+
+        public async Task<Book> GetById(Guid bookId)
+        {
+            return await _bookRepository.GetByIdAsync(bookId);
+        }
+
         /// <summary>
         /// Optional override to create listeners (e.g., TCP, HTTP) for this service replica to handle client or user requests.
         /// </summary>
         /// <returns>A collection of listeners.</returns>
         protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
         {
-            return new ServiceInstanceListener[0];
+            return new[]
+            {
+                new ServiceInstanceListener(this.CreateServiceRemotingListener),
+            };
         }
 
         /// <summary>

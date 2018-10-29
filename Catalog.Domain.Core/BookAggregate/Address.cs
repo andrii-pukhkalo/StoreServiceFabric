@@ -1,5 +1,8 @@
-﻿namespace Catalog.Domain.Core.BookAggregate
+﻿using System;
+
+namespace Catalog.Domain.Core.BookAggregate
 {
+    [Serializable]
     public class Address
     {
         public string City { get; private set; }

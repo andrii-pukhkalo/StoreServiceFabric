@@ -2,6 +2,7 @@
 
 namespace Catalog.Domain.Core.BookAggregate
 {
+    [Serializable]
     public class Book
     {
         public Guid Id { get; private set; }
