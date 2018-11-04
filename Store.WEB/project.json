@@ -1,0 +1,33 @@
+{
+  "dependencies": {
+    "Microsoft.AspNetCore.Diagnostics": "1.0.0",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.1",
+    "Microsoft.Extensions.Logging.Console": "1.0.0",
+    "Microsoft.ServiceFabric": "6.3.187",
+    "Microsoft.ServiceFabric.AspNetCore.WebListener": "3.2.187",
+    "Microsoft.ServiceFabric.Data": "3.2.187",
+    "Microsoft.ServiceFabric.Services": "3.2.187"
+  },
+
+  "tools": {
+  },
+
+  "frameworks": {
+    "net461": { }
+  },
+
+  "buildOptions": {
+    "emitEntryPoint": true,
+    "preserveCompilationContext": true
+  },
+
+  "publishOptions": {
+    "include": [
+      "wwwroot",
+      "web.config"
+    ]
+  },
+
+  "scripts": {
+  }
+}

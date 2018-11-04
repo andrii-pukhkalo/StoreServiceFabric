@@ -34,6 +34,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Catalog.Service\Catalog.Service.csproj" />
     <ProjectReference Include="..\Store.Gateway\Store.Gateway.xproj" />
+    <ProjectReference Include="..\Store.WEB\Store.WEB.xproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
   <PropertyGroup>
