@@ -1,61 +1,65 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../book/book.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BooksService {
-  
 
-  constructor() { }
+  private heroesUrl = 'http://localhost:8514/api/values';
 
-  getBooks(): Book[] {
-    return [
-      {
-        Id: "1",
-        Name: "DDD Von Vernon"
-      },
-      {
-        Id: "1",
-        Name: "DDD Von Vernon"
-      },
-      {
-        Id: "1",
-        Name: "DDD Von Vernon"
-      },
-      {
-        Id: "1",
-        Name: "DDD Von Vernon"
-      },
+  constructor(private http: HttpClient) { }
+
+  getBooks(): Observable<Book[]> {
+    return this.http.get<Book[]>(this.heroesUrl)
+    // return [
+    //   {
+    //     Id: "1",
+    //     Name: "DDD Von Vernon"
+    //   },
+    //   {
+    //     Id: "1",
+    //     Name: "DDD Von Vernon"
+    //   },
+    //   {
+    //     Id: "1",
+    //     Name: "DDD Von Vernon"
+    //   },
+    //   {
+    //     Id: "1",
+    //     Name: "DDD Von Vernon"
+    //   },
       
-      {
-        Id: "1",
-        Name: "DDD Von Vernon"
-      },
+    //   {
+    //     Id: "1",
+    //     Name: "DDD Von Vernon"
+    //   },
       
-      {
-        Id: "1",
-        Name: "DDD Von Vernon"
-      },
+    //   {
+    //     Id: "1",
+    //     Name: "DDD Von Vernon"
+    //   },
       
-      {
-        Id: "1",
-        Name: "DDD Von Vernon"
-      },
+    //   {
+    //     Id: "1",
+    //     Name: "DDD Von Vernon"
+    //   },
       
-      {
-        Id: "1",
-        Name: "DDD Von Vernon"
-      },
+    //   {
+    //     Id: "1",
+    //     Name: "DDD Von Vernon"
+    //   },
       
-      {
-        Id: "1",
-        Name: "DDD Von Vernon"
-      },
-      {
-        Id: "2",
-        Name: "DDD Eric Evans"
-      }
-    ];
+    //   {
+    //     Id: "1",
+    //     Name: "DDD Von Vernon"
+    //   },
+    //   {
+    //     Id: "2",
+    //     Name: "DDD Eric Evans"
+    //   }
+    // ];
   }
 }

@@ -140,12 +140,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _books_books_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./books/books.component */ "./src/app/books/books.component.ts");
 /* harmony import */ var _book_book_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./book/book.component */ "./src/app/book/book.component.ts");
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -180,6 +182,7 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatIconModule"],
                 _angular_material_card__WEBPACK_IMPORTED_MODULE_8__["MatCardModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatListModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_12__["HttpClientModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_11__["NgbModule"].forRoot()
             ],
             providers: [],
@@ -289,7 +292,7 @@ var Book = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col col-md-3 col-sm-4\" *ngFor=\"let book of books\">\n      <app-book [book]=\"book\"></app-book>\n      <br>\n    </div>\n  </div>  \n</div>\n\n"
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col col-md-3 col-sm-4\" *ngFor=\"let book of books\">\n      <app-book [book]=\"book\"></app-book>\n    </div>\n  </div>  \n</div>\n\n"
 
 /***/ }),
 
@@ -334,8 +337,13 @@ var BooksComponent = /** @class */ (function () {
     BooksComponent.prototype.ngOnInit = function () {
         this.getBooks();
     };
+    // getBooks(): void {
+    //   this.books = this.booksService.getBooks();
+    // }
     BooksComponent.prototype.getBooks = function () {
-        this.books = this.booksService.getBooks();
+        var _this = this;
+        this.booksService.getBooks()
+            .subscribe(function (books) { return _this.books = books; });
     };
     BooksComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -363,6 +371,7 @@ var BooksComponent = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BooksService", function() { return BooksService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -373,58 +382,62 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var BooksService = /** @class */ (function () {
-    function BooksService() {
+    function BooksService(http) {
+        this.http = http;
+        this.heroesUrl = 'http://localhost:8514/api/values';
     }
     BooksService.prototype.getBooks = function () {
-        return [
-            {
-                Id: "1",
-                Name: "DDD Von Vernon"
-            },
-            {
-                Id: "1",
-                Name: "DDD Von Vernon"
-            },
-            {
-                Id: "1",
-                Name: "DDD Von Vernon"
-            },
-            {
-                Id: "1",
-                Name: "DDD Von Vernon"
-            },
-            {
-                Id: "1",
-                Name: "DDD Von Vernon"
-            },
-            {
-                Id: "1",
-                Name: "DDD Von Vernon"
-            },
-            {
-                Id: "1",
-                Name: "DDD Von Vernon"
-            },
-            {
-                Id: "1",
-                Name: "DDD Von Vernon"
-            },
-            {
-                Id: "1",
-                Name: "DDD Von Vernon"
-            },
-            {
-                Id: "2",
-                Name: "DDD Eric Evans"
-            }
-        ];
+        return this.http.get(this.heroesUrl);
+        // return [
+        //   {
+        //     Id: "1",
+        //     Name: "DDD Von Vernon"
+        //   },
+        //   {
+        //     Id: "1",
+        //     Name: "DDD Von Vernon"
+        //   },
+        //   {
+        //     Id: "1",
+        //     Name: "DDD Von Vernon"
+        //   },
+        //   {
+        //     Id: "1",
+        //     Name: "DDD Von Vernon"
+        //   },
+        //   {
+        //     Id: "1",
+        //     Name: "DDD Von Vernon"
+        //   },
+        //   {
+        //     Id: "1",
+        //     Name: "DDD Von Vernon"
+        //   },
+        //   {
+        //     Id: "1",
+        //     Name: "DDD Von Vernon"
+        //   },
+        //   {
+        //     Id: "1",
+        //     Name: "DDD Von Vernon"
+        //   },
+        //   {
+        //     Id: "1",
+        //     Name: "DDD Von Vernon"
+        //   },
+        //   {
+        //     Id: "2",
+        //     Name: "DDD Eric Evans"
+        //   }
+        // ];
     };
     BooksService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
     ], BooksService);
     return BooksService;
 }());

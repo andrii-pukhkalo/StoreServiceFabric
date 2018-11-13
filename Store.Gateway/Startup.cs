@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Cors.Internal;
+using Microsoft.AspNetCore.Cors;
 
 namespace Store.Gateway
 {
@@ -29,6 +32,12 @@ namespace Store.Gateway
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins",
+                    builder => builder.WithOrigins("http://localhost:8713"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,6 +45,15 @@ namespace Store.Gateway
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            app.UseCors(builder => 
+                            builder.WithOrigins("http://localhost:8713")
+                                        .AllowAnyHeader()
+            );
+
+            //app.UseCors("AllowSpecificOrigin");
+
+
 
             app.UseMvc();
         }

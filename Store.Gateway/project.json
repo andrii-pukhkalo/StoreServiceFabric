@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "Microsoft.AspNet.WebApi.Cors": "5.2.6",
     "Microsoft.AspNetCore.Mvc": "1.0.1",
     "Microsoft.AspNetCore.Routing": "1.0.1",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.1",

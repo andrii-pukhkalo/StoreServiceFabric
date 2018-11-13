@@ -38,6 +38,7 @@ namespace Store.Gateway
 
                         return new WebHostBuilder()
                                     .UseWebListener()
+                                    
                                     .ConfigureServices(
                                         services => services
                                             .AddSingleton<StatelessServiceContext>(serviceContext))

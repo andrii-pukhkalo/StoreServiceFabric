@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { BooksComponent } from './books/books.component';
 import { BookComponent } from './book/book.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule }    from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatIconModule,
     MatCardModule,
     MatListModule,
+    HttpClientModule,
     NgbModule.forRoot()
   ],
   providers: [],
