@@ -17,8 +17,18 @@
     <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
   </PropertyGroup>
   <ItemGroup>
+    <DnxInvisibleContent Include=".editorconfig" />
+    <DnxInvisibleContent Include="angular.json" />
     <DnxInvisibleContent Include="bower.json" />
     <DnxInvisibleContent Include=".bowerrc" />
+    <DnxInvisibleContent Include="package-lock.json" />
+    <DnxInvisibleContent Include="package.json" />
+    <DnxInvisibleContent Include="tsconfig.json" />
+    <DnxInvisibleContent Include="tslint.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <DnxInvisibleFolder Include="e2e\" />
+    <DnxInvisibleFolder Include="src\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\DotNet.Web\Microsoft.DotNet.Web.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>
