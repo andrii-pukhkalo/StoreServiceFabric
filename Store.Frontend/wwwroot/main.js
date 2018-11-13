@@ -139,12 +139,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm5/card.es5.js");
 /* harmony import */ var _books_books_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./books/books.component */ "./src/app/books/books.component.ts");
 /* harmony import */ var _book_book_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./book/book.component */ "./src/app/book/book.component.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -177,7 +179,8 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatSidenavModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatIconModule"],
                 _angular_material_card__WEBPACK_IMPORTED_MODULE_8__["MatCardModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatListModule"]
+                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatListModule"],
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_11__["NgbModule"].forRoot()
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
@@ -197,7 +200,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"example-card\">\n  <mat-card-header>\n    <div mat-card-avatar class=\"example-header-image\"></div>\n    <mat-card-title>{{book.name}}</mat-card-title>\n    <mat-card-subtitle>Dog Breed</mat-card-subtitle>\n  </mat-card-header>\n  <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n  <mat-card-content>\n    <p>\n      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.\n      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally\n      bred for hunting.\n    </p>\n  </mat-card-content>\n  <mat-card-actions>\n    <button mat-button>LIKE</button>\n    <button mat-button>SHARE</button>\n  </mat-card-actions>\n</mat-card> "
+module.exports = "<br>\n<mat-card class=\"example-card\">\n  <mat-card-header>\n    <div mat-card-avatar class=\"example-header-image\"></div>\n    <mat-card-title>{{book.name}}</mat-card-title>\n    <mat-card-subtitle>Dog Breed</mat-card-subtitle>\n  </mat-card-header>\n  <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n  <mat-card-content>\n    <p>\n      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.\n      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally\n      bred for hunting.\n    </p>\n  </mat-card-content>\n  <mat-card-actions>\n    <button mat-button>LIKE</button>\n    <button mat-button>SHARE</button>\n  </mat-card-actions>\n</mat-card>"
 
 /***/ }),
 
@@ -286,7 +289,7 @@ var Book = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngFor=\"let book of books\">\n  \n  <app-book [book]=\"book\"></app-book>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col col-md-3 col-sm-4\" *ngFor=\"let book of books\">\n      <app-book [book]=\"book\"></app-book>\n      <br>\n    </div>\n  </div>  \n</div>\n\n"
 
 /***/ }),
 
@@ -375,6 +378,38 @@ var BooksService = /** @class */ (function () {
     }
     BooksService.prototype.getBooks = function () {
         return [
+            {
+                Id: "1",
+                Name: "DDD Von Vernon"
+            },
+            {
+                Id: "1",
+                Name: "DDD Von Vernon"
+            },
+            {
+                Id: "1",
+                Name: "DDD Von Vernon"
+            },
+            {
+                Id: "1",
+                Name: "DDD Von Vernon"
+            },
+            {
+                Id: "1",
+                Name: "DDD Von Vernon"
+            },
+            {
+                Id: "1",
+                Name: "DDD Von Vernon"
+            },
+            {
+                Id: "1",
+                Name: "DDD Von Vernon"
+            },
+            {
+                Id: "1",
+                Name: "DDD Von Vernon"
+            },
             {
                 Id: "1",
                 Name: "DDD Von Vernon"

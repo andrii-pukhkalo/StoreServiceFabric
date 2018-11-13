@@ -10,6 +10,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { MatCardModule } from '@angular/material/card';
 import { BooksComponent } from './books/books.component';
 import { BookComponent } from './book/book.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BookComponent } from './book/book.component';
     MatSidenavModule,
     MatIconModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
