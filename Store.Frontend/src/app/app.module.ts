@@ -12,13 +12,15 @@ import { BooksComponent } from './books/books.component';
 import { BookComponent } from './book/book.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule }    from '@angular/common/http';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     BooksComponent,
-    BookComponent
+    BookComponent,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,

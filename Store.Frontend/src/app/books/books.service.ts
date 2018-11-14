@@ -14,52 +14,5 @@ export class BooksService {
 
   getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(this.heroesUrl)
-    // return [
-    //   {
-    //     Id: "1",
-    //     Name: "DDD Von Vernon"
-    //   },
-    //   {
-    //     Id: "1",
-    //     Name: "DDD Von Vernon"
-    //   },
-    //   {
-    //     Id: "1",
-    //     Name: "DDD Von Vernon"
-    //   },
-    //   {
-    //     Id: "1",
-    //     Name: "DDD Von Vernon"
-    //   },
-      
-    //   {
-    //     Id: "1",
-    //     Name: "DDD Von Vernon"
-    //   },
-      
-    //   {
-    //     Id: "1",
-    //     Name: "DDD Von Vernon"
-    //   },
-      
-    //   {
-    //     Id: "1",
-    //     Name: "DDD Von Vernon"
-    //   },
-      
-    //   {
-    //     Id: "1",
-    //     Name: "DDD Von Vernon"
-    //   },
-      
-    //   {
-    //     Id: "1",
-    //     Name: "DDD Von Vernon"
-    //   },
-    //   {
-    //     Id: "2",
-    //     Name: "DDD Eric Evans"
-    //   }
-    // ];
   }
 }
