@@ -1,4 +1,4 @@
 export class Book {
-    Id : string
-    Name : string
+    id : string
+    name : string
 }

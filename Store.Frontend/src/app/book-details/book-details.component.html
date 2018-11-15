@@ -1,3 +1,42 @@
-<p>
-  book-details works!
-</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Book Full Name</h3>
+        </div>
+    </div>
+    <div class="row">
+        <br>
+        <div class="col-md-4">
+            <div class="text-center">
+                <img src="https://picsum.photos/400/500/?random" class="img-fluid">
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="price">
+                <p>$123.42</p>
+            </div>
+            <mat-form-field>
+                <input matInput placeholder="Amount" value="1" min="1" step="1" type="number" class="example-right-align">
+            </mat-form-field>
+            <span>&nbsp;&nbsp;&nbsp;</span>
+            <span>Available in stock</span>
+            <br>
+            <button mat-raised-button color="primary">Add to cart</button>
+            
+            <br>
+            <br>
+            <dl>
+                <dt>Publicher</dt>
+                <dd>Name of publisher</dd>
+                <dt>Address</dt>
+                <dd>
+                    <address>
+                        1355 Market St, Suite 900<br>
+                        San Francisco, CA 94103<br>
+                        <abbr title="Phone">P:</abbr> (123) 456-7890
+                    </address>    
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>

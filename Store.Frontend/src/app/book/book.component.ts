@@ -12,8 +12,6 @@ export class BookComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.book);
-  }
+  ngOnInit() { }
 
 }

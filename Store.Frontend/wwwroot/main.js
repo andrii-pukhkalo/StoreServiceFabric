@@ -48,7 +48,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 var routes = [
-    { path: 'details/:id', component: _book_details_book_details_component__WEBPACK_IMPORTED_MODULE_3__["BookDetailsComponent"] },
+    { path: 'books/:id', component: _book_details_book_details_component__WEBPACK_IMPORTED_MODULE_3__["BookDetailsComponent"] },
     { path: 'books', component: _books_books_component__WEBPACK_IMPORTED_MODULE_2__["BooksComponent"], pathMatch: 'full' },
     { path: '', redirectTo: '/', pathMatch: 'full' },
 ];
@@ -145,17 +145,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/cdk/layout */ "./node_modules/@angular/cdk/esm5/layout.es5.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm5/card.es5.js");
-/* harmony import */ var _books_books_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./books/books.component */ "./src/app/books/books.component.ts");
-/* harmony import */ var _book_book_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./book/book.component */ "./src/app/book/book.component.ts");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _book_details_book_details_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./book-details/book-details.component */ "./src/app/book-details/book-details.component.ts");
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/esm5/form-field.es5.js");
+/* harmony import */ var _books_books_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./books/books.component */ "./src/app/books/books.component.ts");
+/* harmony import */ var _book_book_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./book/book.component */ "./src/app/book/book.component.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _book_details_book_details_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./book-details/book-details.component */ "./src/app/book-details/book-details.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -178,9 +180,9 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
                 _nav_nav_component__WEBPACK_IMPORTED_MODULE_5__["NavComponent"],
-                _books_books_component__WEBPACK_IMPORTED_MODULE_9__["BooksComponent"],
-                _book_book_component__WEBPACK_IMPORTED_MODULE_10__["BookComponent"],
-                _book_details_book_details_component__WEBPACK_IMPORTED_MODULE_13__["BookDetailsComponent"]
+                _books_books_component__WEBPACK_IMPORTED_MODULE_10__["BooksComponent"],
+                _book_book_component__WEBPACK_IMPORTED_MODULE_11__["BookComponent"],
+                _book_details_book_details_component__WEBPACK_IMPORTED_MODULE_14__["BookDetailsComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -192,11 +194,15 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatSidenavModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatIconModule"],
                 _angular_material_card__WEBPACK_IMPORTED_MODULE_8__["MatCardModule"],
+                _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatFormFieldModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatInputModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatListModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_12__["HttpClientModule"],
-                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_11__["NgbModule"].forRoot()
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_13__["HttpClientModule"],
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_12__["NgbModule"].forRoot()
             ],
-            providers: [],
+            providers: [
+                { provide: _angular_material__WEBPACK_IMPORTED_MODULE_7__["MAT_LABEL_GLOBAL_OPTIONS"], useValue: { float: 'always' } }
+            ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         })
     ], AppModule);
@@ -214,7 +220,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  book-details works!\n</p>\n"
+module.exports = "<div class=\"container-fluid\">\n    <div class=\"row\">\n        <div class=\"col-md-12\">\n            <h3>Book Full Name</h3>\n        </div>\n    </div>\n    <div class=\"row\">\n        <br>\n        <div class=\"col-md-4\">\n            <div class=\"text-center\">\n                <img src=\"https://picsum.photos/400/500/?random\" class=\"img-fluid\">\n            </div>\n        </div>\n        <div class=\"col-md-8\">\n            <div class=\"price\">\n                <p>$123.42</p>\n            </div>\n            <mat-form-field>\n                <input matInput placeholder=\"Amount\" value=\"1\" min=\"1\" step=\"1\" type=\"number\" class=\"example-right-align\">\n            </mat-form-field>\n            <span>&nbsp;&nbsp;&nbsp;</span>\n            <span>Available in stock</span>\n            <br>\n            <button mat-raised-button color=\"primary\">Add to card</button>\n            \n            <br>\n            <br>\n            <dl>\n                <dt>Publicher</dt>\n                <dd>Name of publisher</dd>\n                <dt>Address</dt>\n                <dd>\n                    <address>\n                        1355 Market St, Suite 900<br>\n                        San Francisco, CA 94103<br>\n                        <abbr title=\"Phone\">P:</abbr> (123) 456-7890\n                    </address>    \n                </dd>\n            </dl>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -225,7 +231,7 @@ module.exports = "<p>\n  book-details works!\n</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Jvb2stZGV0YWlscy9ib29rLWRldGFpbHMuY29tcG9uZW50LnNjc3MifQ== */"
+module.exports = ".example-container {\n  display: flex;\n  flex-direction: column; }\n\n.example-container > * {\n  width: 100%; }\n\n.example-right-align {\n  text-align: right; }\n\ninput.example-right-align::-webkit-outer-spin-button,\ninput.example-right-align::-webkit-inner-spin-button {\n  display: none; }\n\ninput.example-right-align {\n  -moz-appearance: textfield; }\n\n.price {\n  font-size: 2em;\n  color: #ff4081;\n  font-weight: 600; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYm9vay1kZXRhaWxzL0M6XFxwcm9qZWN0c1xcU3RvcmVTZXJ2aWNlRmFicmljXFxTdG9yZS5Gcm9udGVuZC9zcmNcXGFwcFxcYm9vay1kZXRhaWxzXFxib29rLWRldGFpbHMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCLEVBQ3pCOztBQUVEO0VBQ0UsWUFBVyxFQUNaOztBQUVEO0VBQ0Usa0JBQWlCLEVBQ2xCOztBQUVEOztFQUVFLGNBQWEsRUFDZDs7QUFFRDtFQUNFLDJCQUEwQixFQUMzQjs7QUFFRDtFQUNFLGVBQWM7RUFDZCxlQUFjO0VBQ2QsaUJBQWdCLEVBQ2pCIiwiZmlsZSI6InNyYy9hcHAvYm9vay1kZXRhaWxzL2Jvb2stZGV0YWlscy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5leGFtcGxlLWNvbnRhaW5lciB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxufVxyXG5cclxuLmV4YW1wbGUtY29udGFpbmVyID4gKiB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5leGFtcGxlLXJpZ2h0LWFsaWduIHtcclxuICB0ZXh0LWFsaWduOiByaWdodDtcclxufVxyXG5cclxuaW5wdXQuZXhhbXBsZS1yaWdodC1hbGlnbjo6LXdlYmtpdC1vdXRlci1zcGluLWJ1dHRvbixcclxuaW5wdXQuZXhhbXBsZS1yaWdodC1hbGlnbjo6LXdlYmtpdC1pbm5lci1zcGluLWJ1dHRvbiB7XHJcbiAgZGlzcGxheTogbm9uZTtcclxufVxyXG5cclxuaW5wdXQuZXhhbXBsZS1yaWdodC1hbGlnbiB7XHJcbiAgLW1vei1hcHBlYXJhbmNlOiB0ZXh0ZmllbGQ7XHJcbn1cclxuXHJcbi5wcmljZSB7XHJcbiAgZm9udC1zaXplOiAyZW07XHJcbiAgY29sb3I6ICNmZjQwODE7XHJcbiAgZm9udC13ZWlnaHQ6IDYwMDtcclxufSJdfQ== */"
 
 /***/ }),
 
@@ -277,7 +283,7 @@ var BookDetailsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\n<a routerLink=\"/details/{{book.id}}\">\n  <mat-card class=\"example-card\">\n      <mat-card-header>\n        <div mat-card-avatar class=\"example-header-image\"></div>\n        <mat-card-title>{{book.name}}</mat-card-title>\n        <mat-card-subtitle>Dog Breed</mat-card-subtitle>\n      </mat-card-header>\n      <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n      <mat-card-content>\n        <p>\n          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.\n          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally\n          bred for hunting.\n        </p>\n      </mat-card-content>\n      <mat-card-actions>\n        <button mat-button>LIKE</button>\n        <button mat-button>SHARE</button>\n      </mat-card-actions>\n    </mat-card>\n</a>\n"
+module.exports = "<br>\n<a routerLink=\"/books/{{book.id}}\">\n  <mat-card class=\"example-card\">\n      <mat-card-header>\n        <div mat-card-avatar class=\"example-header-image\"></div>\n        <mat-card-title>{{book.name}}</mat-card-title>\n        <mat-card-subtitle>Dog Breed</mat-card-subtitle>\n      </mat-card-header>\n      <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n      <mat-card-content>\n        <p>\n          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.\n          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally\n          bred for hunting.\n        </p>\n      </mat-card-content>\n      <mat-card-actions>\n        <button mat-button>LIKE</button>\n        <button mat-button>SHARE</button>\n      </mat-card-actions>\n    </mat-card>\n</a>\n"
 
 /***/ }),
 
@@ -318,9 +324,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var BookComponent = /** @class */ (function () {
     function BookComponent() {
     }
-    BookComponent.prototype.ngOnInit = function () {
-        console.log(this.book);
-    };
+    BookComponent.prototype.ngOnInit = function () { };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", _book_model__WEBPACK_IMPORTED_MODULE_1__["Book"])
@@ -461,10 +465,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var BooksService = /** @class */ (function () {
     function BooksService(http) {
         this.http = http;
-        this.heroesUrl = 'http://localhost:8514/api/values';
+        this.booksUrl = 'http://localhost:8514/api/values';
     }
     BooksService.prototype.getBooks = function () {
-        return this.http.get(this.heroesUrl);
+        return this.http.get(this.booksUrl);
+    };
+    BooksService.prototype.getBook = function (id) {
+        return this.http.get(this.booksUrl + "/" + id);
     };
     BooksService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -486,7 +493,7 @@ var BooksService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container class=\"sidenav-container\">\n  <mat-sidenav #drawer class=\"sidenav\" fixedInViewport=\"true\"\n      [attr.role]=\"(isHandset$ | async) ? 'dialog' : 'navigation'\"\n      [mode]=\"(isHandset$ | async) ? 'over' : 'side'\"\n      [opened]=\"!(isHandset$ | async)\">\n    <mat-toolbar>Menu</mat-toolbar>\n    <mat-nav-list>\n      <a mat-list-item routerLink=\"/books\">Books</a>\n      <a mat-list-item href=\"#\">Link 2</a>\n      <a mat-list-item href=\"#\">Link 3</a>\n    </mat-nav-list>\n  </mat-sidenav>\n  <mat-sidenav-content>\n    <mat-toolbar color=\"primary\">\n      <button\n        type=\"button\"\n        aria-label=\"Toggle sidenav\"\n        mat-icon-button\n        (click)=\"drawer.toggle()\"\n        *ngIf=\"isHandset$ | async\">\n        <mat-icon aria-label=\"Side nav toggle icon\">menu</mat-icon>\n      </button>\n      <span>client-app</span>\n    </mat-toolbar>\n\n    <router-outlet></router-outlet>\n    <!-- Add Content Here -->\n  </mat-sidenav-content>\n</mat-sidenav-container>\n"
+module.exports = "<mat-sidenav-container class=\"sidenav-container\">\n  <mat-sidenav #drawer class=\"sidenav\" fixedInViewport=\"true\"\n      [attr.role]=\"(isHandset$ | async) ? 'dialog' : 'navigation'\"\n      [mode]=\"(isHandset$ | async) ? 'over' : 'side'\"\n      [opened]=\"!(isHandset$ | async)\">\n    <mat-toolbar>Menu</mat-toolbar>\n    <mat-nav-list>\n      <a mat-list-item routerLink=\"/books\"><mat-icon>library_books</mat-icon>\n        <span>&nbsp;&nbsp;&nbsp;</span>Books</a>\n      <a mat-list-item href=\"#\"><mat-icon>shopping_cart</mat-icon>\n        <span>&nbsp;&nbsp;&nbsp;</span>Cart</a>\n      <a mat-list-item href=\"#\">Link 3</a>\n    </mat-nav-list>\n  </mat-sidenav>\n  <mat-sidenav-content>\n    <mat-toolbar color=\"primary\">\n      <button\n        type=\"button\"\n        aria-label=\"Toggle sidenav\"\n        mat-icon-button\n        (click)=\"drawer.toggle()\"\n        *ngIf=\"isHandset$ | async\">\n        <mat-icon aria-label=\"Side nav toggle icon\">menu</mat-icon>\n      </button>\n      <span>Store App</span>\n    </mat-toolbar>\n    <nav aria-label=\"breadcrumb\">\n        <ol class=\"breadcrumb\">\n          <li class=\"breadcrumb-item\"><a href=\"#\">Home</a></li>\n          <li class=\"breadcrumb-item\"><a href=\"#\">Books</a></li>\n          <li class=\"breadcrumb-item active\" aria-current=\"page\">Current</li>\n        </ol>\n      </nav>\n    <router-outlet></router-outlet>\n    <!-- Add Content Here -->\n  </mat-sidenav-content>\n</mat-sidenav-container>\n"
 
 /***/ }),
 
@@ -497,7 +504,7 @@ module.exports = "<mat-sidenav-container class=\"sidenav-container\">\n  <mat-si
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".sidenav-container {\n  height: 100%; }\n\n.sidenav {\n  width: 200px; }\n\n.sidenav .mat-toolbar {\n  background: inherit; }\n\n.mat-toolbar.mat-primary {\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  z-index: 1; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbmF2L0M6XFxwcm9qZWN0c1xcU3RvcmVTZXJ2aWNlRmFicmljXFxTdG9yZS5Gcm9udGVuZC9zcmNcXGFwcFxcbmF2XFxuYXYuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFZLEVBQ2I7O0FBRUQ7RUFDRSxhQUFZLEVBQ2I7O0FBRUQ7RUFDRSxvQkFBbUIsRUFDcEI7O0FBRUQ7RUFDRSx5QkFBZ0I7RUFBaEIsaUJBQWdCO0VBQ2hCLE9BQU07RUFDTixXQUFVLEVBQ1giLCJmaWxlIjoic3JjL2FwcC9uYXYvbmF2LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnNpZGVuYXYtY29udGFpbmVyIHtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4uc2lkZW5hdiB7XG4gIHdpZHRoOiAyMDBweDtcbn1cblxuLnNpZGVuYXYgLm1hdC10b29sYmFyIHtcbiAgYmFja2dyb3VuZDogaW5oZXJpdDtcbn1cblxuLm1hdC10b29sYmFyLm1hdC1wcmltYXJ5IHtcbiAgcG9zaXRpb246IHN0aWNreTtcbiAgdG9wOiAwO1xuICB6LWluZGV4OiAxO1xufVxuIl19 */"
+module.exports = ".sidenav-container {\n  height: 100%; }\n\n.sidenav {\n  width: 200px; }\n\n.sidenav .mat-toolbar {\n  background: inherit; }\n\n.mat-toolbar.mat-primary {\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  z-index: 1; }\n\n.breadcrumb {\n  background-color: #fff; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbmF2L0M6XFxwcm9qZWN0c1xcU3RvcmVTZXJ2aWNlRmFicmljXFxTdG9yZS5Gcm9udGVuZC9zcmNcXGFwcFxcbmF2XFxuYXYuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFZLEVBQ2I7O0FBRUQ7RUFDRSxhQUFZLEVBQ2I7O0FBRUQ7RUFDRSxvQkFBbUIsRUFDcEI7O0FBRUQ7RUFDRSx5QkFBZ0I7RUFBaEIsaUJBQWdCO0VBQ2hCLE9BQU07RUFDTixXQUFVLEVBQ1g7O0FBRUQ7RUFDRSx1QkFBc0IsRUFDdkIiLCJmaWxlIjoic3JjL2FwcC9uYXYvbmF2LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnNpZGVuYXYtY29udGFpbmVyIHtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4uc2lkZW5hdiB7XG4gIHdpZHRoOiAyMDBweDtcbn1cblxuLnNpZGVuYXYgLm1hdC10b29sYmFyIHtcbiAgYmFja2dyb3VuZDogaW5oZXJpdDtcbn1cblxuLm1hdC10b29sYmFyLm1hdC1wcmltYXJ5IHtcbiAgcG9zaXRpb246IHN0aWNreTtcbiAgdG9wOiAwO1xuICB6LWluZGV4OiAxO1xufVxuXG4uYnJlYWRjcnVtYiB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmZmY7XG59XG4iXX0= */"
 
 /***/ }),
 
