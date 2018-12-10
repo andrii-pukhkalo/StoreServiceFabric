@@ -8,15 +8,15 @@ import { Observable, of } from 'rxjs';
 })
 export class BooksService {
 
-  private booksUrl = 'http://localhost:8514/api/values';
+  private baseUrl = 'http://localhost:8514/api/catalog';
 
   constructor(private http: HttpClient) { }
 
   getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(this.booksUrl)
+    return this.http.get<Book[]>(this.baseUrl + "/items")
   }
 
   getBook(id: string) : Observable<Book> {
-    return this.http.get<Book>(this.booksUrl + "/" + id)
+    return this.http.get<Book>(this.baseUrl + "/items/" + id)
   }
 }

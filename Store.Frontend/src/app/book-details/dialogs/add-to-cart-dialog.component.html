@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>You added book to the cart</h1>
+<div mat-dialog-content>
+  <div class="row">
+    <div class="col-2">
+      <div class="text-left">
+        <img src="https://picsum.photos/400/500/?random" class="img-fluid" style="height: 50px;">
+      </div>
+    </div>
+    <div class="col-10">
+      {{data.book.name}} <b>{{data.count}}</b>x <b>{{data.book.price.currency}}{{data.book.price.amount}}</b>
+    </div>
+  </div>
+</div>
+<br>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Continue shopping</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Go to cart</button>
+</div>

@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Cors.Internal;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 
 namespace Store.Gateway
 {
@@ -33,10 +34,27 @@ namespace Store.Gateway
             // Add framework services.
             services.AddMvc();
 
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AllowAllOrigins",
+            //        builder => builder//.WithOrigins("http://localhost:8713")
+            //                        .AllowAnyOrigin()
+            //                        .AllowAnyHeader()
+            //                        .AllowAnyMethod()
+            //                        .AllowCredentials()
+            //                        .SetPreflightMaxAge(TimeSpan.FromHours(1))
+
+            //        );
+            //});
+
             services.AddCors(options =>
             {
-                options.AddPolicy("AllowAllOrigins",
-                    builder => builder.WithOrigins("http://localhost:8713"));
+                options.AddPolicy("CorsPolicy",
+                    builder => builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials());
             });
         }
 
@@ -46,16 +64,40 @@ namespace Store.Gateway
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseCors(builder => 
-                            builder.WithOrigins("http://localhost:8713")
-                                        .AllowAnyHeader()
-            );
+            //app.UseCors(builder =>
+            //                builder
+            //                            //.WithOrigins("http://localhost:8713")
+            //                            .AllowAnyOrigin()
+            //                            .AllowAnyHeader()
+            //                            .AllowAnyMethod()
+            //                            .AllowCredentials()
+            //                            .SetPreflightMaxAge(TimeSpan.FromHours(1))
+            //);
+            
 
-            //app.UseCors("AllowSpecificOrigin");
 
 
+            app.UseCors("CorsPolicy");
 
             app.UseMvc();
         }
+
+        private void addCookie(HttpContext context)
+        {
+            if (!context.Request.Cookies.ContainsKey("id"))
+            {
+                var copt = new CookieOptions();
+
+                copt.Expires = DateTimeOffset.Now.AddSeconds(30);
+
+                Guid id = Guid.NewGuid();
+
+                context.Response.Cookies.Append("id", id.ToString(), copt);
+            }
+        }
+
+        //private addCookie() {
+        //    
+        //}
     }
 }

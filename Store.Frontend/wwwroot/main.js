@@ -37,6 +37,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _books_books_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./books/books.component */ "./src/app/books/books.component.ts");
 /* harmony import */ var _book_details_book_details_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./book-details/book-details.component */ "./src/app/book-details/book-details.component.ts");
+/* harmony import */ var _cart_cart_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./cart/cart.component */ "./src/app/cart/cart.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -47,10 +48,12 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var routes = [
+    { path: '', component: _books_books_component__WEBPACK_IMPORTED_MODULE_2__["BooksComponent"] },
     { path: 'books/:id', component: _book_details_book_details_component__WEBPACK_IMPORTED_MODULE_3__["BookDetailsComponent"] },
     { path: 'books', component: _books_books_component__WEBPACK_IMPORTED_MODULE_2__["BooksComponent"], pathMatch: 'full' },
-    { path: '', redirectTo: '/', pathMatch: 'full' },
+    { path: 'cart', component: _cart_cart_component__WEBPACK_IMPORTED_MODULE_4__["CartComponent"], pathMatch: 'full' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -151,6 +154,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _book_details_book_details_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./book-details/book-details.component */ "./src/app/book-details/book-details.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _book_details_dialogs_add_to_cart_dialog_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./book-details/dialogs/add-to-cart-dialog.component */ "./src/app/book-details/dialogs/add-to-cart-dialog.component.ts");
+/* harmony import */ var _cart_cart_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./cart/cart.component */ "./src/app/cart/cart.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -172,17 +178,27 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            exports: [
+                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatDialogModule"]
+            ],
+            entryComponents: [_book_details_dialogs_add_to_cart_dialog_component__WEBPACK_IMPORTED_MODULE_16__["AddToCartDialogComponent"]],
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
                 _nav_nav_component__WEBPACK_IMPORTED_MODULE_5__["NavComponent"],
                 _books_books_component__WEBPACK_IMPORTED_MODULE_10__["BooksComponent"],
                 _book_book_component__WEBPACK_IMPORTED_MODULE_11__["BookComponent"],
-                _book_details_book_details_component__WEBPACK_IMPORTED_MODULE_14__["BookDetailsComponent"]
+                _book_details_book_details_component__WEBPACK_IMPORTED_MODULE_14__["BookDetailsComponent"],
+                _book_details_dialogs_add_to_cart_dialog_component__WEBPACK_IMPORTED_MODULE_16__["AddToCartDialogComponent"],
+                _cart_cart_component__WEBPACK_IMPORTED_MODULE_17__["CartComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -198,6 +214,8 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatInputModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatListModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_13__["HttpClientModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatDialogModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_15__["FormsModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_12__["NgbModule"].forRoot()
             ],
             providers: [
@@ -220,7 +238,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n    <div class=\"row\">\n        <div class=\"col-md-12\">\n            <h3>Book Full Name</h3>\n        </div>\n    </div>\n    <div class=\"row\">\n        <br>\n        <div class=\"col-md-4\">\n            <div class=\"text-center\">\n                <img src=\"https://picsum.photos/400/500/?random\" class=\"img-fluid\">\n            </div>\n        </div>\n        <div class=\"col-md-8\">\n            <div class=\"price\">\n                <p>$123.42</p>\n            </div>\n            <mat-form-field>\n                <input matInput placeholder=\"Amount\" value=\"1\" min=\"1\" step=\"1\" type=\"number\" class=\"example-right-align\">\n            </mat-form-field>\n            <span>&nbsp;&nbsp;&nbsp;</span>\n            <span>Available in stock</span>\n            <br>\n            <button mat-raised-button color=\"primary\">Add to card</button>\n            \n            <br>\n            <br>\n            <dl>\n                <dt>Publicher</dt>\n                <dd>Name of publisher</dd>\n                <dt>Address</dt>\n                <dd>\n                    <address>\n                        1355 Market St, Suite 900<br>\n                        San Francisco, CA 94103<br>\n                        <abbr title=\"Phone\">P:</abbr> (123) 456-7890\n                    </address>    \n                </dd>\n            </dl>\n        </div>\n    </div>\n</div>"
+module.exports = "<div *ngIf=\"book\">\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <h3>{{book.name}}</h3>\n            </div>\n        </div>\n        <div class=\"row\">\n            <br>\n            <div class=\"col-md-4\">\n                <div class=\"text-center\">\n                    <img src=\"https://picsum.photos/400/500/?random\" class=\"img-fluid\">\n                </div>\n            </div>\n            <div class=\"col-md-8\">\n                <div class=\"price\">\n                    <p>{{book.price.currency}}{{book.price.amount}}</p>\n                </div>\n                <mat-form-field>\n                    <input matInput [(ngModel)]=\"count\" placeholder=\"Count\" value=\"1\" min=\"1\" step=\"1\" type=\"number\" class=\"example-right-align\">\n                </mat-form-field>\n                <span>&nbsp;&nbsp;&nbsp;</span>\n                <span>Available in stock <b>{{book.availableStock}}</b></span>\n                <br>\n                <button mat-raised-button color=\"primary\" (click)=\"addToCart()\">Add to cart</button>\n                <br>\n                <br>\n                <dl>\n                    <dt>Publicher</dt>\n                    <dd>{{book.publisher.name}}}</dd>\n                    <dt>Address</dt>\n                    <dd>\n                        <address>\n                            {{book.publisher.address.street}} St, Suite {{book.publisher.address.house}}<br>\n                            {{book.publisher.address.city}}, CA {{book.publisher.address.zipcode}}<br>\n                        </address>    \n                    </dd>\n                </dl>\n            </div>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -246,6 +264,12 @@ module.exports = ".example-container {\n  display: flex;\n  flex-direction: colu
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookDetailsComponent", function() { return BookDetailsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _books_books_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../books/books.service */ "./src/app/books/books.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _dialogs_add_to_cart_dialog_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dialogs/add-to-cart-dialog.component */ "./src/app/book-details/dialogs/add-to-cart-dialog.component.ts");
+/* harmony import */ var _cart_cart_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../cart/cart.service */ "./src/app/cart/cart.service.ts");
+/* harmony import */ var _cart_cart_model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../cart/cart.model */ "./src/app/cart/cart.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -256,10 +280,45 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
+
+
 var BookDetailsComponent = /** @class */ (function () {
-    function BookDetailsComponent() {
+    function BookDetailsComponent(route, booksService, cartService, dialog) {
+        this.route = route;
+        this.booksService = booksService;
+        this.cartService = cartService;
+        this.dialog = dialog;
     }
     BookDetailsComponent.prototype.ngOnInit = function () {
+        this.getBook();
+    };
+    BookDetailsComponent.prototype.getBook = function () {
+        var _this = this;
+        var id = this.route.snapshot.paramMap.get('id');
+        this.booksService.getBook(id)
+            .subscribe(function (book) { return _this.book = book; });
+    };
+    BookDetailsComponent.prototype.addToCart = function () {
+        var _this = this;
+        var cartItem = new _cart_cart_model__WEBPACK_IMPORTED_MODULE_6__["CartItem"](this.book.id, this.count);
+        console.log(cartItem);
+        this.cartService.addToCart(cartItem).subscribe(function (cart) { return _this.cart = cart; });
+        console.log(this.cart);
+        this.openAddToCartDialog();
+    };
+    BookDetailsComponent.prototype.openAddToCartDialog = function () {
+        var _this = this;
+        var dialogRef = this.dialog.open(_dialogs_add_to_cart_dialog_component__WEBPACK_IMPORTED_MODULE_4__["AddToCartDialogComponent"], {
+            width: '550px',
+            data: { count: this.count, book: this.book }
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+            _this.count = result;
+        });
     };
     BookDetailsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -267,9 +326,72 @@ var BookDetailsComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./book-details.component.html */ "./src/app/book-details/book-details.component.html"),
             styles: [__webpack_require__(/*! ./book-details.component.scss */ "./src/app/book-details/book-details.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _books_books_service__WEBPACK_IMPORTED_MODULE_2__["BooksService"],
+            _cart_cart_service__WEBPACK_IMPORTED_MODULE_5__["CartService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]])
     ], BookDetailsComponent);
     return BookDetailsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/book-details/dialogs/add-to-cart-dialog.component.html":
+/*!************************************************************************!*\
+  !*** ./src/app/book-details/dialogs/add-to-cart-dialog.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1 mat-dialog-title>You added book to the cart</h1>\r\n<div mat-dialog-content>\r\n  <div class=\"row\">\r\n    <div class=\"col-2\">\r\n      <div class=\"text-left\">\r\n        <img src=\"https://picsum.photos/400/500/?random\" class=\"img-fluid\" style=\"height: 50px;\">\r\n      </div>\r\n    </div>\r\n    <div class=\"col-10\">\r\n      {{data.book.name}} <b>{{data.count}}</b>x <b>{{data.book.price.currency}}{{data.book.price.amount}}</b>\r\n    </div>\r\n  </div>\r\n</div>\r\n<br>\r\n<div mat-dialog-actions align=\"end\">\r\n  <button mat-button (click)=\"onNoClick()\">Continue shopping</button>\r\n  <button mat-button [mat-dialog-close]=\"data.animal\" cdkFocusInitial>Go to cart</button>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/book-details/dialogs/add-to-cart-dialog.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/book-details/dialogs/add-to-cart-dialog.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: AddToCartDialogComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddToCartDialogComponent", function() { return AddToCartDialogComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var AddToCartDialogComponent = /** @class */ (function () {
+    function AddToCartDialogComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+    }
+    AddToCartDialogComponent.prototype.onNoClick = function () {
+        this.dialogRef.close();
+    };
+    AddToCartDialogComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'add-to-cart-dialog',
+            template: __webpack_require__(/*! ./add-to-cart-dialog.component.html */ "./src/app/book-details/dialogs/add-to-cart-dialog.component.html"),
+        }),
+        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], Object])
+    ], AddToCartDialogComponent);
+    return AddToCartDialogComponent;
 }());
 
 
@@ -348,16 +470,26 @@ var BookComponent = /** @class */ (function () {
 /*!************************************!*\
   !*** ./src/app/book/book.model.ts ***!
   \************************************/
-/*! exports provided: Book */
+/*! exports provided: Book, Price */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Book", function() { return Book; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Price", function() { return Price; });
 var Book = /** @class */ (function () {
     function Book() {
     }
+    Book.prototype.priceInCurrency = function () {
+        return this.price.amount + this.price.currency;
+    };
     return Book;
+}());
+
+var Price = /** @class */ (function () {
+    function Price() {
+    }
+    return Price;
 }());
 
 
@@ -465,13 +597,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var BooksService = /** @class */ (function () {
     function BooksService(http) {
         this.http = http;
-        this.booksUrl = 'http://localhost:8514/api/values';
+        this.baseUrl = 'http://localhost:8514/api/catalog';
     }
     BooksService.prototype.getBooks = function () {
-        return this.http.get(this.booksUrl);
+        return this.http.get(this.baseUrl + "/items");
     };
     BooksService.prototype.getBook = function (id) {
-        return this.http.get(this.booksUrl + "/" + id);
+        return this.http.get(this.baseUrl + "/items/" + id);
     };
     BooksService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -486,6 +618,154 @@ var BooksService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/cart/cart.component.html":
+/*!******************************************!*\
+  !*** ./src/app/cart/cart.component.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  cart works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/cart/cart.component.scss":
+/*!******************************************!*\
+  !*** ./src/app/cart/cart.component.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NhcnQvY2FydC5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/cart/cart.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/cart/cart.component.ts ***!
+  \****************************************/
+/*! exports provided: CartComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CartComponent", function() { return CartComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CartComponent = /** @class */ (function () {
+    function CartComponent() {
+    }
+    CartComponent.prototype.ngOnInit = function () {
+    };
+    CartComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-cart',
+            template: __webpack_require__(/*! ./cart.component.html */ "./src/app/cart/cart.component.html"),
+            styles: [__webpack_require__(/*! ./cart.component.scss */ "./src/app/cart/cart.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CartComponent);
+    return CartComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/cart/cart.model.ts":
+/*!************************************!*\
+  !*** ./src/app/cart/cart.model.ts ***!
+  \************************************/
+/*! exports provided: Cart, CartItem */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Cart", function() { return Cart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CartItem", function() { return CartItem; });
+var Cart = /** @class */ (function () {
+    function Cart() {
+    }
+    return Cart;
+}());
+
+var CartItem = /** @class */ (function () {
+    function CartItem(bookId, count) {
+        this.bookId = bookId;
+        this.count = count;
+    }
+    return CartItem;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/cart/cart.service.ts":
+/*!**************************************!*\
+  !*** ./src/app/cart/cart.service.ts ***!
+  \**************************************/
+/*! exports provided: CartService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CartService", function() { return CartService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var httpOptions = {
+    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({ 'Content-Type': 'application/json' })
+};
+var CartService = /** @class */ (function () {
+    function CartService(http) {
+        this.http = http;
+        this.baseUrl = 'http://localhost:8514/api/cart';
+    }
+    CartService.prototype.getCart = function () {
+        return this.http.get(this.baseUrl);
+    };
+    CartService.prototype.addToCart = function (cartItem) {
+        var cartItemAsString = JSON.stringify(cartItem);
+        console.log(cartItemAsString);
+        return this.http.post(this.baseUrl + "/add-item", cartItemAsString, httpOptions);
+        //   .map((res: any) => {
+        //     return res.json();
+        // })
+        // .catch(this.handleError);
+    };
+    CartService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], CartService);
+    return CartService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/nav/nav.component.html":
 /*!****************************************!*\
   !*** ./src/app/nav/nav.component.html ***!
@@ -493,7 +773,7 @@ var BooksService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container class=\"sidenav-container\">\n  <mat-sidenav #drawer class=\"sidenav\" fixedInViewport=\"true\"\n      [attr.role]=\"(isHandset$ | async) ? 'dialog' : 'navigation'\"\n      [mode]=\"(isHandset$ | async) ? 'over' : 'side'\"\n      [opened]=\"!(isHandset$ | async)\">\n    <mat-toolbar>Menu</mat-toolbar>\n    <mat-nav-list>\n      <a mat-list-item routerLink=\"/books\"><mat-icon>library_books</mat-icon>\n        <span>&nbsp;&nbsp;&nbsp;</span>Books</a>\n      <a mat-list-item href=\"#\"><mat-icon>shopping_cart</mat-icon>\n        <span>&nbsp;&nbsp;&nbsp;</span>Cart</a>\n      <a mat-list-item href=\"#\">Link 3</a>\n    </mat-nav-list>\n  </mat-sidenav>\n  <mat-sidenav-content>\n    <mat-toolbar color=\"primary\">\n      <button\n        type=\"button\"\n        aria-label=\"Toggle sidenav\"\n        mat-icon-button\n        (click)=\"drawer.toggle()\"\n        *ngIf=\"isHandset$ | async\">\n        <mat-icon aria-label=\"Side nav toggle icon\">menu</mat-icon>\n      </button>\n      <span>Store App</span>\n    </mat-toolbar>\n    <nav aria-label=\"breadcrumb\">\n        <ol class=\"breadcrumb\">\n          <li class=\"breadcrumb-item\"><a href=\"#\">Home</a></li>\n          <li class=\"breadcrumb-item\"><a href=\"#\">Books</a></li>\n          <li class=\"breadcrumb-item active\" aria-current=\"page\">Current</li>\n        </ol>\n      </nav>\n    <router-outlet></router-outlet>\n    <!-- Add Content Here -->\n  </mat-sidenav-content>\n</mat-sidenav-container>\n"
+module.exports = "<mat-sidenav-container class=\"sidenav-container\">\n  <mat-sidenav #drawer class=\"sidenav\" fixedInViewport=\"true\"\n      [attr.role]=\"(isHandset$ | async) ? 'dialog' : 'navigation'\"\n      [mode]=\"(isHandset$ | async) ? 'over' : 'side'\"\n      [opened]=\"!(isHandset$ | async)\">\n    <mat-toolbar>Menu</mat-toolbar>\n    <mat-nav-list>\n      <a mat-list-item routerLink=\"/books\"><mat-icon>library_books</mat-icon>\n        <span>&nbsp;&nbsp;&nbsp;</span>Books</a>\n      <a mat-list-item routerLink=\"/cart\"><mat-icon>shopping_cart</mat-icon>\n        <span>&nbsp;&nbsp;&nbsp;</span>Cart</a>\n      <a mat-list-item href=\"#\">Link 3</a>\n    </mat-nav-list>\n  </mat-sidenav>\n  <mat-sidenav-content>\n    <mat-toolbar color=\"primary\">\n      <button\n        type=\"button\"\n        aria-label=\"Toggle sidenav\"\n        mat-icon-button\n        (click)=\"drawer.toggle()\"\n        *ngIf=\"isHandset$ | async\">\n        <mat-icon aria-label=\"Side nav toggle icon\">menu</mat-icon>\n      </button>\n      <span>Store App</span>\n    </mat-toolbar>\n    <nav aria-label=\"breadcrumb\">\n        <ol class=\"breadcrumb\">\n          <li class=\"breadcrumb-item\"><a href=\"#\">Home</a></li>\n          <li class=\"breadcrumb-item\"><a href=\"#\">Books</a></li>\n          <li class=\"breadcrumb-item active\" aria-current=\"page\">Current</li>\n        </ol>\n      </nav>\n    <router-outlet></router-outlet>\n    <!-- Add Content Here -->\n  </mat-sidenav-content>\n</mat-sidenav-container>\n"
 
 /***/ }),
 
@@ -504,7 +784,7 @@ module.exports = "<mat-sidenav-container class=\"sidenav-container\">\n  <mat-si
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".sidenav-container {\n  height: 100%; }\n\n.sidenav {\n  width: 200px; }\n\n.sidenav .mat-toolbar {\n  background: inherit; }\n\n.mat-toolbar.mat-primary {\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  z-index: 1; }\n\n.breadcrumb {\n  background-color: #fff; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbmF2L0M6XFxwcm9qZWN0c1xcU3RvcmVTZXJ2aWNlRmFicmljXFxTdG9yZS5Gcm9udGVuZC9zcmNcXGFwcFxcbmF2XFxuYXYuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFZLEVBQ2I7O0FBRUQ7RUFDRSxhQUFZLEVBQ2I7O0FBRUQ7RUFDRSxvQkFBbUIsRUFDcEI7O0FBRUQ7RUFDRSx5QkFBZ0I7RUFBaEIsaUJBQWdCO0VBQ2hCLE9BQU07RUFDTixXQUFVLEVBQ1g7O0FBRUQ7RUFDRSx1QkFBc0IsRUFDdkIiLCJmaWxlIjoic3JjL2FwcC9uYXYvbmF2LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnNpZGVuYXYtY29udGFpbmVyIHtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4uc2lkZW5hdiB7XG4gIHdpZHRoOiAyMDBweDtcbn1cblxuLnNpZGVuYXYgLm1hdC10b29sYmFyIHtcbiAgYmFja2dyb3VuZDogaW5oZXJpdDtcbn1cblxuLm1hdC10b29sYmFyLm1hdC1wcmltYXJ5IHtcbiAgcG9zaXRpb246IHN0aWNreTtcbiAgdG9wOiAwO1xuICB6LWluZGV4OiAxO1xufVxuXG4uYnJlYWRjcnVtYiB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmZmY7XG59XG4iXX0= */"
+module.exports = ".sidenav-container {\n  height: 100%; }\n\n.sidenav {\n  width: 200px; }\n\n.sidenav .mat-toolbar {\n  background: inherit; }\n\n.mat-toolbar.mat-primary {\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  z-index: 1; }\n\n.breadcrumb {\n  background-color: rgba(0, 0, 0, 0); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbmF2L0M6XFxwcm9qZWN0c1xcU3RvcmVTZXJ2aWNlRmFicmljXFxTdG9yZS5Gcm9udGVuZC9zcmNcXGFwcFxcbmF2XFxuYXYuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFZLEVBQ2I7O0FBRUQ7RUFDRSxhQUFZLEVBQ2I7O0FBRUQ7RUFDRSxvQkFBbUIsRUFDcEI7O0FBRUQ7RUFDRSx5QkFBZ0I7RUFBaEIsaUJBQWdCO0VBQ2hCLE9BQU07RUFDTixXQUFVLEVBQ1g7O0FBRUQ7RUFDRSxtQ0FBa0MsRUFDbkMiLCJmaWxlIjoic3JjL2FwcC9uYXYvbmF2LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnNpZGVuYXYtY29udGFpbmVyIHtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4uc2lkZW5hdiB7XG4gIHdpZHRoOiAyMDBweDtcbn1cblxuLnNpZGVuYXYgLm1hdC10b29sYmFyIHtcbiAgYmFja2dyb3VuZDogaW5oZXJpdDtcbn1cblxuLm1hdC10b29sYmFyLm1hdC1wcmltYXJ5IHtcbiAgcG9zaXRpb246IHN0aWNreTtcbiAgdG9wOiAwO1xuICB6LWluZGV4OiAxO1xufVxuXG4uYnJlYWRjcnVtYiB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMCwgMCwgMCwgMCk7O1xufVxuIl19 */"
 
 /***/ }),
 

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "Microsoft.AspNet.WebApi.Client": "5.2.6",
     "Microsoft.AspNet.WebApi.Cors": "5.2.6",
     "Microsoft.AspNetCore.Mvc": "1.0.1",
     "Microsoft.AspNetCore.Routing": "1.0.1",
@@ -24,6 +25,12 @@
   "frameworks": {
     "net461": {
       "dependencies": {
+        "Cart.Domain.Core": {
+          "target": "project"
+        },
+        "Cart.Service.Interfaces": {
+          "target": "project"
+        },
         "Catalog.Domain.Core": {
           "target": "project"
         },

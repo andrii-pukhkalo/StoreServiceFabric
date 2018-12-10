@@ -17,6 +17,8 @@
     <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Cart.Domain.Core\Cart.Domain.Core.csproj" />
+    <ProjectReference Include="..\Cart.Service.Interfaces\Cart.Service.Interfaces.csproj" />
     <ProjectReference Include="..\Catalog.Domain.Core\Catalog.Domain.Core.csproj" />
     <ProjectReference Include="..\Catalog.Service.Interfaces\Catalog.Service.Interfaces.csproj" />
   </ItemGroup>

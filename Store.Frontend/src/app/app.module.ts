@@ -15,13 +15,24 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule }    from '@angular/common/http';
 import { BookDetailsComponent } from './book-details/book-details.component';
 
+import { MatDialogModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
+import { AddToCartDialogComponent } from './book-details/dialogs/add-to-cart-dialog.component';
+import { CartComponent } from './cart/cart.component';
+
 @NgModule({
+  exports: [
+    MatDialogModule
+  ],
+  entryComponents: [AddToCartDialogComponent],
   declarations: [
     AppComponent,
     NavComponent,
     BooksComponent,
     BookComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    AddToCartDialogComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +48,8 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     MatInputModule,
     MatListModule,
     HttpClientModule,
+    MatDialogModule,
+    FormsModule,
     NgbModule.forRoot()
   ],
   providers: [
