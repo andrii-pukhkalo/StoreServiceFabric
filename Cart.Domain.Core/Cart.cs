@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cart.Domain.Core
 {
+    [Serializable]
     public class Cart
     {
         public List<CartItem> Items { get; private set; }

@@ -35,6 +35,11 @@ namespace Cart.Service
             return await _cartRepository.AddToCart(cartId, cartItem);
         }
 
+        public async Task<Domain.Core.Cart> GetCart(Guid cartId)
+        {
+            return await _cartRepository.GetCart(cartId);
+        }
+
         /// <summary>
         /// Optional override to create listeners (e.g., HTTP, Service Remoting, WCF, etc.) for this service replica to handle client or user requests.
         /// </summary>

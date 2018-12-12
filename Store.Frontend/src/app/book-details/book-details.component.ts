@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material';
 import { AddToCartDialogComponent } from './dialogs/add-to-cart-dialog.component';
 import { CartService } from '../cart/cart.service';
 import { CartItem, Cart } from '../cart/cart.model';
+import { Subscription }   from 'rxjs';
 
 @Component({
   selector: 'app-book-details',
@@ -18,6 +19,8 @@ export class BookDetailsComponent implements OnInit {
   book: Book;
   count: number;
   cart: Cart;
+
+  subscription: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -39,9 +42,9 @@ export class BookDetailsComponent implements OnInit {
 
     const cartItem = new CartItem(this.book.id, this.count); 
 
-    console.log(cartItem)
     this.cartService.addToCart(cartItem).subscribe(cart => this.cart = cart);    
     console.log(this.cart);
+    this.cartService.confirmMission(1);
     this.openAddToCartDialog();
   }
 

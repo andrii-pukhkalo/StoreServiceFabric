@@ -2,6 +2,7 @@
 
 namespace Cart.Domain.Core
 {
+    [Serializable]
     public class CartItem
     {
         public Guid BookId { get; private set; }

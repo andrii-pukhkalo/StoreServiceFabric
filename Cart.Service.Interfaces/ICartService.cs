@@ -12,5 +12,6 @@ namespace Cart.Service.Interfaces
     public interface ICartService : IService
     {
         Task<Cart.Domain.Core.Cart> AddToCart(Guid cartId, CartItemDTO cartItem);
+        Task<Cart.Domain.Core.Cart> GetCart(Guid cartId);
     }
 }

@@ -41,25 +41,41 @@ namespace Store.Gateway.Controllers
             return "value";
         }
 
-        // POST api/values
-        [HttpPost]
-        [Route("add-item")]
-        public async Task<IActionResult> addItem([FromBody]CartItemDTO cartItemDTO)
+        [HttpGet("{id}")]
+        [Route("get-cart")]
+        public async Task<IActionResult> getCart()
         {
-            Guid id = AddCookie();
-
             try
             {
-                var cart = await _cartService.AddToCart(id, cartItemDTO);
+                Guid id = Guid.Empty;
+
+                var cart = await _cartService.GetCart(id);
+                return Ok(cart);
             }
             catch (Exception e)
             {
 
                 throw;
             }
-            
+        }
 
-            return Ok(123);
+        // POST api/values
+        [HttpPost]
+        [Route("add-item")]
+        public async Task<IActionResult> addItem([FromBody]CartItemDTO cartItemDTO)
+        {
+            Guid id = Guid.Empty;//AddCookie();
+
+            try
+            {
+                var cart = await _cartService.AddToCart(id, cartItemDTO);
+                return Ok(cart);
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
         }
 
         // PUT api/values/5

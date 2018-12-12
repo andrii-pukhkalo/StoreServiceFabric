@@ -9,6 +9,7 @@ namespace Cart.Domain.Interfaces
 {
     public interface ICartRepository
     {
-        Task<Cart.Domain.Core.Cart> AddToCart(Guid cartId, CartItem cartItem);
+        Task<Core.Cart> AddToCart(Guid cartId, CartItem cartItem);
+        Task<Core.Cart> GetCart(Guid cartId);
     }
 }

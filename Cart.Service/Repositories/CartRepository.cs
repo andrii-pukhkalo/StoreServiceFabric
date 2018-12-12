@@ -21,14 +21,16 @@ namespace Cart.Service.Repositories
 
        
 
-        private async Task<IReliableDictionary<Guid, Cart.Domain.Core.Cart>> GetCarts()
+        private async Task<IReliableDictionary<Guid, Domain.Core.Cart>> GetCarts()
         {
             return await _stateManager
                 .GetOrAddAsync<IReliableDictionary<Guid, Cart.Domain.Core.Cart>>("carts");
         }
 
+
+
         public async Task<Domain.Core.Cart> AddToCart(Guid cartId, CartItem cartItem)
-            {
+        {
             var carts = await GetCarts();
 
             using (var transaction = _stateManager.CreateTransaction())
@@ -57,6 +59,18 @@ namespace Cart.Service.Repositories
 
                     return newCart;
                 }
+            }
+        }
+
+        public async Task<Domain.Core.Cart> GetCart(Guid cartId)
+        {
+            var carts = await GetCarts();
+
+            using (var transaction = _stateManager.CreateTransaction())
+            {
+                var cart = await carts.TryGetValueAsync(transaction, cartId);
+
+                return cart.Value;
             }
         }
     }

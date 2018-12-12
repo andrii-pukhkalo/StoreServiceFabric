@@ -47,15 +47,14 @@ namespace Store.Gateway
             //        );
             //});
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy("CorsPolicy",
-                    builder => builder
-                        .AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader()
-                        .AllowCredentials());
-            });
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("CorsPolicy",
+            //        builder => builder
+            //            .AllowAnyOrigin()
+            //            .AllowAnyMethod()
+            //            .AllowAnyHeader());
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,13 +72,16 @@ namespace Store.Gateway
             //                            .AllowCredentials()
             //                            .SetPreflightMaxAge(TimeSpan.FromHours(1))
             //);
-            
 
 
-
-            app.UseCors("CorsPolicy");
+            app.UseCors(builder =>
+            builder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
 
             app.UseMvc();
+
+            //app.UseCors("CorsPolicy");
+
+            //app.UseMvc();
         }
 
         private void addCookie(HttpContext context)

@@ -1,11 +1,7 @@
 export class Book {
     id : string
     name : string
-    price: Price
-
-    public priceInCurrency(): string {
-        return this.price.amount + this.price.currency;
-    }
+    price: Price  
 }
 
 export class Price {

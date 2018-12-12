@@ -1,3 +1,37 @@
-<p>
-  cart works!
-</p>
+<div class="mat-app-background basic-container">
+
+<button mat-raised-button (click)="isOptional = !isOptional">
+        {{!isOptional ? 'Enable optional steps' : 'Disable optional steps'}}
+      </button>
+      
+      <mat-horizontal-stepper>
+        <mat-step>
+            
+                  <table class="table table-borderless">
+                      <thead>
+                          <tr>
+                              <th scope="col">First</th>
+                              <th scope="col">Price</th>
+                              <th scope="col">Count</th>
+                              <th scope="col">Amount</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let cartDetail of cartDetails">     
+                              <td>{{cartDetail?.book?.name}}</td>
+                              <td>{{viewPrice(cartDetail?.book?.price)}}</td>
+                              <td>{{cartDetail?.count}}</td>
+                              <td>{{calcAmount(cartDetail?.book?.price?.amount, cartDetail?.count)}}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+         
+        </mat-step>
+        <mat-step><p>2</p></mat-step>
+      </mat-horizontal-stepper>
+<br>
+<button mat-raised-button color="primary" (click)="checkout()">Checkout</button>
+</div>           

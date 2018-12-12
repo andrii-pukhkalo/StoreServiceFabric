@@ -16,13 +16,18 @@ import { HttpClientModule }    from '@angular/common/http';
 import { BookDetailsComponent } from './book-details/book-details.component';
 
 import { MatDialogModule } from '@angular/material';
+import { MatTableModule, MatStepperModule } from '@angular/material';
+
 import { FormsModule } from '@angular/forms';
 import { AddToCartDialogComponent } from './book-details/dialogs/add-to-cart-dialog.component';
 import { CartComponent } from './cart/cart.component';
+import { TotalInCartComponent } from './total-in-cart/total-in-cart.component';
 
 @NgModule({
   exports: [
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule,
+    MatStepperModule
   ],
   entryComponents: [AddToCartDialogComponent],
   declarations: [
@@ -32,10 +37,12 @@ import { CartComponent } from './cart/cart.component';
     BookComponent,
     BookDetailsComponent,
     AddToCartDialogComponent,
-    CartComponent
+    CartComponent,
+    TotalInCartComponent
   ],
   imports: [
     BrowserModule,
+    MatStepperModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
@@ -50,6 +57,7 @@ import { CartComponent } from './cart/cart.component';
     HttpClientModule,
     MatDialogModule,
     FormsModule,
+    MatTableModule,
     NgbModule.forRoot()
   ],
   providers: [

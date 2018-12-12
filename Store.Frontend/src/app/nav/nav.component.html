@@ -8,7 +8,9 @@
       <a mat-list-item routerLink="/books"><mat-icon>library_books</mat-icon>
         <span>&nbsp;&nbsp;&nbsp;</span>Books</a>
       <a mat-list-item routerLink="/cart"><mat-icon>shopping_cart</mat-icon>
-        <span>&nbsp;&nbsp;&nbsp;</span>Cart</a>
+        <span>&nbsp;&nbsp;&nbsp;</span>Cart
+        <app-total-in-cart></app-total-in-cart> 
+      </a>
       <a mat-list-item href="#">Link 3</a>
     </mat-nav-list>
   </mat-sidenav>
@@ -31,7 +33,7 @@
           <li class="breadcrumb-item active" aria-current="page">Current</li>
         </ol>
       </nav>
-    <router-outlet></router-outlet>
     <!-- Add Content Here -->
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
