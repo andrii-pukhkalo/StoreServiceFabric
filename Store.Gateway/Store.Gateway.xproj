@@ -21,6 +21,8 @@
     <ProjectReference Include="..\Cart.Service.Interfaces\Cart.Service.Interfaces.csproj" />
     <ProjectReference Include="..\Catalog.Domain.Core\Catalog.Domain.Core.csproj" />
     <ProjectReference Include="..\Catalog.Service.Interfaces\Catalog.Service.Interfaces.csproj" />
+    <ProjectReference Include="..\Store.EventBusRabbitMQ\Store.EventBusRabbitMQ.csproj" />
+    <ProjectReference Include="..\Store.EventBus\Store.EventBus.csproj" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\DotNet.Web\Microsoft.DotNet.Web.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>

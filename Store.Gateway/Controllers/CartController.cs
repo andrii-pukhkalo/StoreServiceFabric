@@ -9,6 +9,7 @@ using Microsoft.ServiceFabric.Services.Client;
 using Cart.Service.Interfaces.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Cors;
+using Store.Gateway.IntegrationEvents;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,11 +22,22 @@ namespace Store.Gateway.Controllers
 
         public CartController()
         {
-            _cartService = ServiceProxy
+            try
+            {
+                _cartService = ServiceProxy
                 .Create<ICartService>(new Uri("fabric:/Store/Cart.Service"),
                     new ServicePartitionKey(1));
 
-        }
+               
+
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+
+            }
 
         // GET: api/values
         [HttpGet]
@@ -69,6 +81,38 @@ namespace Store.Gateway.Controllers
             try
             {
                 var cart = await _cartService.AddToCart(id, cartItemDTO);
+                return Ok(cart);
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpPost]
+        [Route("checkout")]
+        public async Task<IActionResult> checkout()
+        {
+            Guid userId = Guid.Empty;//AddCookie();
+
+            
+
+            try
+            {
+
+                var cart = await _cartService.GetCart(userId);
+
+                if (cart == null)
+                {
+                    return BadRequest();
+                }
+
+                var eventMessage = new UserCheckoutAcceptedIntegrationEvent(userId, cart);
+
+                //orderService.CreateOrder(cartDto);
+                //_eventBus.Publish(eventMessage);
+
                 return Ok(cart);
             }
             catch (Exception e)

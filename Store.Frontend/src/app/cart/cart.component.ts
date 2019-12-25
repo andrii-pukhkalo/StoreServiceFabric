@@ -52,8 +52,6 @@ export class CartComponent implements OnInit {
   dataSource = ELEMENT_DATA;
   cartDetails: CartDetail[] = [];  
   
-  
-
   constructor(
     private cartService: CartService,
     private booksService: BooksService, 
@@ -95,7 +93,8 @@ export class CartComponent implements OnInit {
   }
 
   checkout() {
-
+    console.log(123);
+    this.cartService.checkout().subscribe();
   }
 }
  

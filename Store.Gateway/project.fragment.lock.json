@@ -98,6 +98,48 @@
           "copyToOutput": true
         }
       }
+    },
+    "Store.EventBusRabbitMQ/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.5.2",
+      "compile": {
+        "bin/Debug/Store.EventBusRabbitMQ.dll": {}
+      },
+      "runtime": {
+        "../packages/Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.28/lib/net40/Microsoft.Diagnostics.Tracing.EventSource.dll": {},
+        "../packages/Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0/lib/netstandard1.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {},
+        "../packages/Microsoft.Extensions.Logging.1.0.0/lib/netstandard1.1/Microsoft.Extensions.Logging.dll": {},
+        "../packages/Microsoft.Extensions.Logging.Abstractions.1.0.0/lib/netstandard1.1/Microsoft.Extensions.Logging.Abstractions.dll": {},
+        "../packages/Newtonsoft.Json.9.0.1/lib/net45/Newtonsoft.Json.dll": {},
+        "../packages/Polly.6.1.2/lib/netstandard1.1/Polly.dll": {},
+        "../packages/RabbitMQ.Client.5.1.0/lib/net451/RabbitMQ.Client.dll": {},
+        "../packages/System.Runtime.InteropServices.RuntimeInformation.4.3.0/lib/net45/System.Runtime.InteropServices.RuntimeInformation.dll": {},
+        "bin/Debug/Store.EventBusRabbitMQ.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/Store.EventBusRabbitMQ.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    },
+    "Store.EventBus/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.5.2",
+      "compile": {
+        "bin/Debug/Store.EventBus.dll": {}
+      },
+      "runtime": {
+        "bin/Debug/Store.EventBus.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/Store.EventBus.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
     }
   }
 }

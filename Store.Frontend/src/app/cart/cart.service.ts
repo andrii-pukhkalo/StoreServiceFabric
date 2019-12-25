@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class CartService {
-  
+    
   private baseUrl = 'http://localhost:8514/api/cart';
   private missionConfirmedSource = new Subject<number>();
 
@@ -38,5 +38,9 @@ export class CartService {
 
   confirmMission(astronaut: number) {
     this.missionConfirmedSource.next(astronaut);
+  }
+
+  checkout(): Observable<any> {
+    return this.http.post(this.baseUrl + "/checkout", null, httpOptions);
   }
 }
